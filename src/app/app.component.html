@@ -1,8 +1,2 @@
 <md-toolbar color="primary">Contacts</md-toolbar>
-<md-list>
-  <md-list-item *ngFor="let contact of contacts; trackBy: trackByContacts">
-     <img md-list-avatar [src]="contact.image">
-        <h3 md-line>{{contact.name}}</h3>
-        <div>{{trackBy}}</div>
-  </md-list-item>
-</md-list>
+<router-outlet></router-outlet>
