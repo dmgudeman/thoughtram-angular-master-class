@@ -9,10 +9,11 @@ import { RouterModule } from '@angular/router'
 import { ContactsAppComponent } from './app.component';
 import { Contact } from './models/contact';
 import { ContactsListComponent } from './contacts-list/contacts-list.component'
-import { APP_ROUTES } from './app.routes'
+import { APP_ROUTES } from './app.routes';
+import { ContactsDetailsComponent } from './contacts-details/contacts-details.component'
 
 @NgModule( {
-  declarations: [ContactsAppComponent, ContactsListComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
