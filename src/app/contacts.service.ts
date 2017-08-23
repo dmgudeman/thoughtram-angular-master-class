@@ -11,7 +11,8 @@ import { HttpClient }        from '@angular/common/http';
 @Injectable()
 export class ContactsService {
   url: string
-  API_ENDPOINT = "http://localhost:4201/api/contacts"
+  API_ENDPOINT = "http://localhost:4201/api"
+  
   
   contacts: Array <Contact>
 
@@ -20,13 +21,27 @@ export class ContactsService {
   ) { }
 
   getContacts() {
-    return  this.http.get<any>(this.API_ENDPOINT)
+    return  this.http.get<any>(this.API_ENDPOINT + "/contacts/")
      .map((data) => data.items);
   }
 
   getContact(id: String){
-     this.url = this.API_ENDPOINT + "/" + id
-     return this.http.get<any>(this.url).map((data) => data.item)
+     let url = this.API_ENDPOINT + "/contacts/" + id
+     return this.http.get<any>(url).map((data) => data.item)
 
   }
-}
+
+  updateContact(contact: Contact){ 
+    let url = this.API_ENDPOINT +"/contacts/" + contact.id.toString();
+    return this.http.put<any>(url, contact)
+    .map(data => data.item)
+
+  }
+  // Add a ContactsService::search(term: string)
+  search(term:string ){
+     let url = this.API_ENDPOINT + "/search?text=" + term;
+     return this.http.get<any>(url).map(data => data.items)
+
+  }
+
+  }

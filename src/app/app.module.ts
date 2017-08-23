@@ -12,10 +12,12 @@ import { Contact }                 from './models/contact';
 import { ContactsListComponent }   from './contacts-list/contacts-list.component'
 import { APP_ROUTES }              from './app.routes';
 import { ContactsDetailsComponent } from './contacts-details/contacts-details.component';
-import { ProvidersComponent } from './providers/providers.component'
+import { ProvidersComponent } from './providers/providers.component';
+import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
+import { FormsModule }        from '@angular/forms';
 
 @NgModule( {
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailsComponent, ProvidersComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailsComponent, ProvidersComponent, ContactsEditorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,6 +25,7 @@ import { ProvidersComponent } from './providers/providers.component'
     FlexLayoutModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     ContactsService, 
