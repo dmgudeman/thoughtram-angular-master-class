@@ -1,9 +1,9 @@
 
 <md-toolbar>
   <md-input-container>
-    <input md-input (input)="search($event.target.value)" type="text" mdInput>
+    <input md-input (input) =terms$.next($event.target.value) type="text" mdInput>
   </md-input-container>
-
+ 
 </md-toolbar>
 
  <md-nav-list>
