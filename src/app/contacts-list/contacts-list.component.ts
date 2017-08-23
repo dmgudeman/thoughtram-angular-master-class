@@ -12,10 +12,12 @@ contacts: Array<Contact>
 
   constructor(
      private contactsService: ContactsService
-  ){}
-
-  ngOnInit() {
-    this.contacts = this.contactsService.getContacts()
+  ){
+    contactsService.getContacts()
+    .subscribe(contacts => this.contacts = contacts);
   }
 
+  ngOnInit() {
+    
+  }
 }

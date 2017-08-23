@@ -2,17 +2,17 @@
   <md-card>
     <md-card-title-group class="fullBleed">
       <img md-card-md-image [src]="contact.image || ''">
-      <md-card-title>{{contact.name}}</md-card-title>
-      <md-card-subtitle>{{contact.email}}</md-card-subtitle>
+      <md-card-title>{{contact?.name}}</md-card-title>
+      <md-card-subtitle>{{contact?.email}}</md-card-subtitle>
     </md-card-title-group>
     <md-card-content>
       <dl>
         <dt>Phone:</dt>
-        <dd>{{contact.phone || '-'}}</dd>
+        <dd>{{contact?.phone}}</dd>
         <dt>Website:</dt>
-        <dd>{{contact.website || '-'}}</dd>
+        <dd>{{contact?.website}}</dd>
         <dt>Birthday:</dt>
-        <dd>{{contact.birthday || '-'}}</dd>
+        <dd>{{contact?.birthday}}</dd>
         <dt>Street:</dt>
         <dd>{{contact.address.street || '-'}}</dd>
         <dt>Zip:</dt>

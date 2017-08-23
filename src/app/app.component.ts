@@ -10,6 +10,12 @@ import { ContactsService } from './contacts.service'
 })
 
 export class ContactsAppComponent {
- 
-  
+    
+  constructor () {
+    console.log('Im HERE');
+  }
+
+  ngOnInit() {
+    console.log("YYYYYYYYYYYYY")
+  }
 }  
