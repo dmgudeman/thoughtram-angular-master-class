@@ -21,7 +21,8 @@ export class TabsComponent implements OnInit {
 
   selectedTabs(tab:TabComponent) {
     
-    this.tabArray.forEach(this.selected = false)
+    this.tabArray.forEach( tab =>{tab.selected = false});
+    tab.show()
 
   }
 }
