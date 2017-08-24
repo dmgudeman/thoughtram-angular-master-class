@@ -3,6 +3,8 @@ import { CONTACT_DATA } from './data/contact-data';
 import { Contact } from './models/contact';
 import 'rxjs/add/operator/map';
 import { HttpClient }        from '@angular/common/http';
+import { Observable }        from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
 
 // interface ContactResponse  { item  : Contact    } 
 // interface ContactsResponse { items : Contact[]  } 
@@ -12,9 +14,10 @@ import { HttpClient }        from '@angular/common/http';
 export class ContactsService {
   url: string
   API_ENDPOINT = "http://localhost:4201/api"
+  debounceMS;
   
   
-  contacts: Array <Contact>
+  contacts$:  Observable<Array<Contact>>
 
   constructor(
     private http: HttpClient
@@ -42,6 +45,22 @@ export class ContactsService {
      let url = this.API_ENDPOINT + "/search?text=" + term;
      return this.http.get<any>(url).map(data => data.items)
 
+  }
+
+  rawSearch(terms$: Observable<string>, debounceMs = 400) : Observable<Array<Contact>>{
+       this.contacts$ = terms$.debounceTime(400)
+                     .distinctUntilChanged()
+                     .switchMap(item => this.search(item))
+                    .merge( this.getContacts());
+
+
+                    return this.contacts;
+
+  }
+  
+  
+
+  
   }
 
   }

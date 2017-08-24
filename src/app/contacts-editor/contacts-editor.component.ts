@@ -3,30 +3,31 @@ import { FormsModule } from '@angular/forms';
 import { ContactsService } from '../contacts.service'
 import { ActivatedRoute,Router }        from '@angular/router';
 import { Contact } from '../models/contact';
+import { Subject }        from 'rxjs/Subject';
 
 import { HttpClient }        from '@angular/common/http';
 
 
 @Component({
-  selector: 'trm-contacts-editor',
-  templateUrl: './contacts-editor.component.html',
-  styleUrls: ['./contacts-editor.component.css']
+    selector: 'trm-contacts-editor',
+    templateUrl: './contacts-editor.component.html',
+    styleUrls: ['./contacts-editor.component.css']
 })
 export class ContactsEditorComponent implements OnInit {
-  contact: Contact = <Contact>{ address: {}};
+     contact: Contact = <Contact>{ address: {}};
+     private terms$ = new Subject<string>();
   
   constructor(
-   private contactsService: ContactsService,
-   private route: ActivatedRoute,
-   private router: Router
+      private contactsService: ContactsService,
+      private route: ActivatedRoute,
+      private router: Router
 
   ) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
-   
+      let id = this.route.snapshot.paramMap.get('id');
       this.contactsService.getContact(id).subscribe( data =>{
-        return this.contact = data;
+          return this.contact = data;
       })
   }
 

@@ -29,9 +29,9 @@ private terms$ = new Subject<string>();
     
     // this.contacts = this.contactsService.getContacts();
     
-   this.contacts$ = this.terms$.debounceTime(400)
-    .distinctUntilChanged()
-    .switchMap(item => this.contactsService.search(item))
-    .merge( this.contactsService.getContacts());
+  //  this.contacts$ = this.terms$.debounceTime(400)
+  //   .distinctUntilChanged()
+  //   .switchMap(item => this.contactsService.search(item))
+  //   .merge( this.contactsService.getContacts());
   }
 }
