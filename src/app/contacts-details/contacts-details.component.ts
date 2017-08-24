@@ -11,6 +11,7 @@ import { EventBusService }         from '../event-bus.service';
 })
 export class ContactsDetailsComponent implements OnInit {
   contact: Contact
+  id: string
   constructor(
     private contactsService: ContactsService,
     private route: ActivatedRoute,
@@ -18,8 +19,10 @@ export class ContactsDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.contactsService.getContact(id).subscribe(
+   this.route.params.subscribe(params => {
+      this.id  = params.id
+    })
+    this.contactsService.getContact(this.id).subscribe(
       (data)=>{
          this.contact = data
          this.eventBusService.emit('appTitleChange', `Details of ${this.contact.name}`)
