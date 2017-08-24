@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TabComponent } from '../tab/tab.component';
+import { TabComponent } from './tab.component';
 
 @Component({
   selector: 'trm-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  // styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
   tabArray: Array<TabComponent>
