@@ -32,7 +32,7 @@ export class ContactsService {
   }
 
   updateContact(contact: Contact){ 
-    let url = this.API_ENDPOINT +"/contacts/" + contact.id.toString();
+    let url = this.API_ENDPOINT +"/contacts/" + contact.id;
     return this.http.put<any>(url, contact)
     .map(data => data.item)
 

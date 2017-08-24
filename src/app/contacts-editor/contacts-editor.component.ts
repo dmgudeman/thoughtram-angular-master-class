@@ -24,7 +24,10 @@ export class ContactsEditorComponent implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    this.contactsService.getContact(id)
+   
+      this.contactsService.getContact(id).subscribe( data =>{
+        return this.contact = data;
+      })
   }
 
   save(contact: Contact) {
