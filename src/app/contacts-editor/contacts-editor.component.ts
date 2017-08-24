@@ -4,10 +4,11 @@ import { ContactsService } from '../contacts.service'
 import { ActivatedRoute,Router }        from '@angular/router';
 import { Contact } from '../models/contact';
 import { Subject }        from 'rxjs/Subject';
+import { EventBusService }        from '../event-bus.service';
 
 import { HttpClient }        from '@angular/common/http';
-import { TabsComponent }        from '../tabs/tabs.component';
-import { TabComponent }        from '../tabs/tab.component';
+// import { TabsComponent }        from '../tabs/tabs.component';
+// import { TabComponent }        from '../tabs/tab.component';
 import { MdTabsModule}   from '@angular/material';
 
 
@@ -19,19 +20,28 @@ import { MdTabsModule}   from '@angular/material';
 export class ContactsEditorComponent implements OnInit {
      contact: Contact = <Contact>{ address: {}};
      private terms$ = new Subject<string>();
-  
-  constructor(
+     id: string;
+
+
+     constructor(
       private contactsService: ContactsService,
       private route: ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private eventBusService: EventBusService
 
   ) { }
 
   ngOnInit() {
-      let id = this.route.snapshot.paramMap.get('id');
-      this.contactsService.getContact(id).subscribe( data =>{
-          return this.contact = data;
-      })
+     
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.contactsService.getContact(this.id).subscribe( contact =>{
+     
+          this.contact = contact;
+          this.eventBusService.emit('appTitleChange', `Editing ${contact.name}`)
+      });
+  
+
+     
   }
 
   save(contact: Contact) {

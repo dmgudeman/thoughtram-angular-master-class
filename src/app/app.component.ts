@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { ContactsService } from './contacts.service'
+import { ContactsService } from './contacts.service';
+import { EventBusService }        from './event-bus.service';
 
 @Component({
   selector: 'trm-contacts-app',
@@ -10,12 +11,18 @@ import { ContactsService } from './contacts.service'
 })
 
 export class ContactsAppComponent {
+  title: string;
     
-  constructor () {
-    console.log('Im HERE');
+  constructor (private eventBusService: EventBusService) {
+  
   }
 
   ngOnInit() {
-    console.log("YYYYYYYYYYYYY")
+    this.eventBusService.observe('appTitleChange').subscribe(title => this.title = title);
+
+    
+    
   }
+
+
 }  

@@ -16,7 +16,8 @@ import { ProvidersComponent }       from './providers/providers.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { FormsModule }             from '@angular/forms';
 // import { TabsComponent }           from  './tabs/tabs.component';
-// import { TabComponent }            from './tabs/tab.component'
+// import { TabComponent }            from './tabs/tab.component';
+import { EventBusService }        from './event-bus.service';
 
 @NgModule( {
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule }             from '@angular/forms';
   ],
   providers: [
     ContactsService, 
+    EventBusService,
   ],
   bootstrap: [ContactsAppComponent]
 })

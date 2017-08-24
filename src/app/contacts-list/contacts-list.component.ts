@@ -3,6 +3,7 @@ import { ContactsService } from '../contacts.service';
 import { Contact } from '../models/contact';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }        from 'rxjs/Subject';
+import { EventBusService }        from '../event-bus.service';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
@@ -19,7 +20,8 @@ export class ContactsListComponent implements OnInit {
 private terms$ = new Subject<string>();
    contacts$: Observable<any>;
   constructor(
-     private contactsService: ContactsService
+     private contactsService: ContactsService,
+     private eventBusService: EventBusService,
   ){}
 
   // search(e) {
@@ -33,5 +35,7 @@ private terms$ = new Subject<string>();
     .distinctUntilChanged()
     .switchMap(item => this.contactsService.search(item))
     .merge( this.contactsService.getContacts());
+    this.eventBusService.emit('appTitleChange', `Contacts`)
   }
-}
+  }
+  
