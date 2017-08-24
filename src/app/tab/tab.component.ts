@@ -7,14 +7,18 @@ import { TabsComponent }        from '../tabs/tabs.component';
   styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit {
-  @Input() selected:boolean;
-  @Input() title:string;
+  @Input() selected = false;
+  @Input() title = '';
 
   constructor(
-    private tabsComponent:TabsComponent,
+    private tabComponent:TabsComponent,
   ) { }
 
   ngOnInit() {
-  }
+     this.tabComponent.addTab(this)
 
+  }
+  show(isVisible=true){
+    this.selected = isVisible;
+  }
 }
