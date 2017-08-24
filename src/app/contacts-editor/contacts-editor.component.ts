@@ -8,6 +8,7 @@ import { Subject }        from 'rxjs/Subject';
 import { HttpClient }        from '@angular/common/http';
 import { TabsComponent }        from '../tabs/tabs.component';
 import { TabComponent }        from '../tabs/tab.component';
+import { MdTabsModule}   from '@angular/material';
 
 
 @Component({
