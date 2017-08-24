@@ -7,7 +7,7 @@ import { TabComponent } from './tab.component';
   // styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
-  tabArray: Array<TabComponent>
+  tabArray: Array<TabComponent> =[]
 
   constructor() { }
 
@@ -15,11 +15,12 @@ export class TabsComponent implements OnInit {
   }
 
   addTab(tab: TabComponent) {
-     this.tabArray.push(tab)
+    this.select(tab);
+     this.tabArray.push(tab);
 
   }
 
-  selectedTabs(tab:TabComponent) {
+  select(tab:TabComponent) {
     
     this.tabArray.forEach( tab =>{tab.selected = false});
     tab.show()
