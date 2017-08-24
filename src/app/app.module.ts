@@ -15,8 +15,8 @@ import { ContactsDetailsComponent } from './contacts-details/contacts-details.co
 import { ProvidersComponent }       from './providers/providers.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { FormsModule }             from '@angular/forms';
-import { TabsComponent }           from  './tabs/tabs.component';
-import { TabComponent }            from './tabs/tab.component'
+// import { TabsComponent }           from  './tabs/tabs.component';
+// import { TabComponent }            from './tabs/tab.component'
 
 @NgModule( {
   declarations: [
@@ -25,8 +25,8 @@ import { TabComponent }            from './tabs/tab.component'
     ContactsDetailsComponent, 
     ProvidersComponent, 
     ContactsEditorComponent, 
-    TabsComponent,
-    TabComponent,
+    // TabsComponent,
+    // TabComponent,
   ],
   imports: [
     BrowserModule,
