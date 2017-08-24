@@ -15,9 +15,19 @@ import { ContactsDetailsComponent } from './contacts-details/contacts-details.co
 import { ProvidersComponent } from './providers/providers.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { FormsModule }        from '@angular/forms';
+import { TabComponent } from './tab/tab.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule( {
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailsComponent, ProvidersComponent, ContactsEditorComponent],
+  declarations: [
+    ContactsAppComponent, 
+    ContactsListComponent, 
+    ContactsDetailsComponent, 
+    ProvidersComponent, 
+    ContactsEditorComponent, 
+    TabComponent, 
+    TabsComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
