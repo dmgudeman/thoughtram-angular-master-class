@@ -54,7 +54,7 @@ export class ContactsService {
                     .merge( this.getContacts());
 
 
-                    return this.contacts;
+                    return this.contacts$;
 
   }
   
@@ -63,4 +63,4 @@ export class ContactsService {
   
   }
 
-  }
+  
